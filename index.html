@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOSEPH RADIO - Radio en Línea</title>
+
+    <!-- Vinculación del manifiesto -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Soporte para iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="IOSEPH RADIO">
+    <link rel="apple-touch-icon" href="assets/logoR.jpg">
+    <link rel="apple-touch-startup-image" href="assets/logoR.jpg">
+
+    <!-- PWA Script para registrar el Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(reg => console.log('Service Worker registrado', reg))
+                .catch(err => console.log('Error al registrar el Service Worker', err));
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: url('assets/radio2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            margin: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+        }
+        .logo {
+            width: 250px;
+            height: auto;
+            margin: 10px 0;
+        }
+        .slogan {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #ccc;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .player-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 2px solid #555;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="assets/logoR.jpg" alt="IOSEPH RADIO Logo" class="logo">
+        <p class="slogan">SOMOS JOSEFINOS, SOMOS TU RADIO</p>
+        <p class="slogan">Disfruta de nuestra transmisión en línea 24/7</p>
+    </header>
+
+    <div class="player-container">
+        <p>Reproduciendo ahora:</p>
+        <audio controls autoplay>
+            <source src="https://stream.zeno.fm/b8swkaaaq9xuv" type="audio/mpeg">
+            Tu navegador no soporta la reproducción de audio.
+        </audio>
+    </div>
+</body>
+</html>
